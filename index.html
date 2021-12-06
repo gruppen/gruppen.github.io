@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QR Reader</title>
+	<link rel="stylesheet" href="./app.css">
+</head>
+
+<body>
+	<div id="scanapp-top-container">
+		<div id="scanapp-container">
+			<div id="scanner">
+				<div id="logo">
+					<img src="./svg/scanapp.svg" />
+				</div>
+				<div id="reader"></div>
+				<div class="empty"></div>
+			</div>
+			<div id="workspace">
+				<div class="workspace-header">Scanned result</div>
+				<div id="no-result-container">Scan to get results</div>
+				<div id="new-scanned-result">
+					<div class="header">
+						New <span id="scan-result-code-type">{code}</span> detected!
+					</div>
+					<div class="section">
+						<div class="image" id="scan-result-image"></div>
+						<div class="data">
+							<table id="result_table">
+								<tr>
+									<!-- <td>Parsed</td> -->
+									<td colspan="2">
+										<div>
+											<div class="badge">
+												<div class="badge-icon">
+													<span><b>Type</b></span>
+												</div>
+												<div class="badge-text">
+													<span id="scan-result-badge-body">{type}</span>
+												</div>
+											</div>
+										</div>
+										<div id="scan-result-parsed">{parsed result here}</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Actions</td>
+									<td>
+										<img class="action_image" id="action-share" src="./svg/share-svgrepo-com.svg">
+										<img class="action_image" id="action-copy" src="./svg/copy-svgrepo-com.svg">
+										<img class="action_image" id="action-payment" src="./svg/coin-svgrepo-com.svg"
+											style="display: none">
+									</td>
+								</tr>
+								<tr>
+									<td>Base64</td>
+									<td style="word-break: break-word">
+										<div id="scan-result-text">{text result here}</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Customer</td>
+									<td style="word-break: break-word">
+										<div id="scan-result-customer">{Customer result here}</div>
+									</td>
+								</tr>
+								<tr>
+									<td>TAX Number</td>
+									<td style="word-break: break-word">
+										<div id="scan-result-taxnumber">{TAX Number result here}</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Timestamp</td>
+									<td style="word-break: break-word">
+										<div id="scan-result-timestamp">{Timestamp result here}</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Total Amount</td>
+									<td style="word-break: break-word">
+										<div id="scan-result-totalamount">{Total Amount result here}</div>
+									</td>
+								</tr>
+								<tr>
+									<td>TAX Amount</td>
+									<td style="word-break: break-word">
+										<div id="scan-result-taxamount">{TAX Amount result here}</div>
+									</td>
+								</tr>
+							</table>
+							<div id="body-footer">
+								<button id="scan-result-close">Close and scan another</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="history">
+					<div class="workspace-header">Scan History</div>
+					<div id="history-list"></div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			Scanning done locally on your device. Test application by OL
+		</div>
+	</div>
+
+	<div class="banners-container">
+		<div class="banners">
+			<div class="banner error">
+				<div class="banner-icon"><i data-eva="alert-circle-outline" data-eva-fill="#ffffff" data-eva-height="48"
+						data-eva-width="48"></i></div>
+				<div class="banner-message" id="banner-error-message">{}</div>
+				<div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
+			</div>
+			<div class="banner success">
+				<div class="banner-icon"><i data-eva="checkmark-circle-outline" data-eva-fill="#ffffff" data-eva-height="48"
+						data-eva-width="48"></i></div>
+				<div class="banner-message" id="banner-success-message">{}</div>
+				<div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://unpkg.com/eva-icons@1.1.3/eva.min.js" onload="eva.replace()"></script>
+	<script src="./js/html5-qrcode.min.js" type="text/javascript"></script>
+	<script src="./js/app.js"></script>
+
+
+</body>
+
+
+</html>
